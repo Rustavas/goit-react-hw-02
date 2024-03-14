@@ -1,16 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Description from "./Description.jsx";
+import Feedback from "./Feedback.jsx";
+import Options from "./Options.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App = () => {
+  const [checkFeedbacks , setCheckFeedbacks] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0
+  });
+
+const updateFeedback = (feedbackType) =>{
+  setCheckFeedbacks({
+    ...checkFeedbacks, 
+    [feedbackType]: checkFeedbacks[feedbackType] + 1
+  });
+};
+
+const totalFeedbacks = checkFeedbacks.good + checkFeedbacks.neutral + checkFeedbacks.bad;
 
   return (
     <>
-
+      <Description />
+      <Feedback handleClick ={ updateFeedback }/>
+      <Options 
+       checkFeedbacks = { checkFeedbacks }
+       totalFeedbacks = { totalFeedbacks }
+      />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
