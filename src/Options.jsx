@@ -1,24 +1,15 @@
-import React from "react";
+// import React from "react";
+import css from "./styles/Options.module.css"
 
-const Options = ({ checkFeedbacks, totalFeedbacks }) => {
-  return totalFeedbacks === 0 ? (
-    <p>No feedback yet</p>
-  ) : (
-    <ul>
-      <li>Good: {checkFeedbacks.good}</li>
-      <li>Neutral: {checkFeedbacks.neutral}</li>
-      <li>Bad: {checkFeedbacks.bad}</li>
-      <li>Total: {totalFeedbacks}</li>
-      <li>
-        Positive:{" "}
-        {Math.round(
-          ((checkFeedbacks.good + checkFeedbacks.neutral) / totalFeedbacks) *
-            100
-        )}
-        %
-      </li>
-    </ul>
-  );
+const Options = ({handleClick, handleClickReset, totalFeedbacks }) => {
+  return (
+    <div className={css.sectOptions}>
+      <button className={css.btnOptions} onClick={()=>handleClick("good")}>Good</button>
+      <button className={css.btnOptions} onClick={()=>handleClick("neutral")}>Neutral</button>
+      <button className={css.btnOptions} onClick={()=>handleClick("bad")}>Bad</button>
+      {totalFeedbacks && <button className={css.btnOptions} onClick={()=>handleClickReset()}>Reset</button>}
+    </div>
+  )
 };
 
 export default Options;

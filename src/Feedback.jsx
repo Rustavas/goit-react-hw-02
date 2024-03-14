@@ -1,13 +1,16 @@
-import React from 'react'
+import css from "./styles/Feedback.module.css"
 
-const Feedback = ({handleClick }) => {
+const Feedback = ({ checkFeedbacks, totalFeedbacks, positive }) => {
   return (
-    <div>
-      <button onClick={()=>handleClick("good")}>Good</button>
-      <button onClick={()=>handleClick("neutral")}>Neutral</button>
-      <button onClick={()=>handleClick("bad")}>Bad</button>
-    </div>
-  )
+    <ul>
+      <li className={css.feedbackItem}>Good: {checkFeedbacks.good}</li>
+      <li className={css.feedbackItem}>Neutral: {checkFeedbacks.neutral}</li>
+      <li className={css.feedbackItem}>Bad: {checkFeedbacks.bad}</li>
+      <li className={css.feedbackItem}>Total: {totalFeedbacks}</li>
+      <li className={css.feedbackItem}>Positive: {positive}%</li>
+     
+    </ul>
+  );
 };
 
 export default Feedback;
