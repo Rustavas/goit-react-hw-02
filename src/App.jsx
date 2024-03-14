@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Description from "./Description.jsx";
-import Feedback from "./Feedback.jsx";
-import Notification from "./Notification.jsx";
-import Options from "./Options.jsx";
+import Description from "./components/description/Description.jsx";
+import Feedback from "./components/feedback/Feedback.jsx";
+import Notification from "./components/notification/Notification.jsx";
+import Options from "./components/options/Options.jsx";
 
 
 
@@ -34,17 +34,13 @@ const App = () => {
   return (
     <>
       <Description />
-      {totalFeedbacks ?
+    
         <Options
           handleClick={updateFeedback}
           handleClickReset={handleClickReset}
           totalFeedbacks={totalFeedbacks}
-        /> :
-        <Options
-          handleClick={updateFeedback}
-          handleClickReset={handleClickReset}
-        />
-      }
+        /> 
+        
       {totalFeedbacks ?
         <Feedback
           checkFeedbacks={checkFeedbacks}
@@ -58,3 +54,8 @@ const App = () => {
 };
 
 export default App;
+//  {/* <Options
+      //     handleClick={updateFeedback}
+      //     handleClickReset={handleClickReset}
+      //   />
+      // }

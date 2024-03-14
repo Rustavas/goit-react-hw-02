@@ -1,4 +1,4 @@
-import css from "./styles/Notification.module.css"
+import css from "./Notification.module.css"
 
 const Notification = () => {
   return (
