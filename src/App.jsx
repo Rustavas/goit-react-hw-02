@@ -12,7 +12,7 @@ const objFeedbacks = {
 const App = () => {
 
   const [checkFeedbacks, setCheckFeedbacks] = useState(() => {
-    const parseFeedbacks = JSON.parse(localStorage.getItem("feedbacks") ?? objFeedbacks);
+    const parseFeedbacks = JSON.parse(localStorage.getItem("feedbacks")) ?? objFeedbacks;
     return parseFeedbacks;
   });
 
